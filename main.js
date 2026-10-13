@@ -108,6 +108,8 @@ function buildMenu() {
 
 function createWindow() {
   const bounds = restoredBounds();
+  const captureSize = /^(\d+)x(\d+)$/.exec(argValue('capture-size') || '');
+  if (captureSize) Object.assign(bounds, { width: Number(captureSize[1]), height: Number(captureSize[2]) });
   win = new BrowserWindow({
     ...bounds,
     minWidth: 200,
@@ -171,6 +173,10 @@ function createWindow() {
     });
   }
 }
+
+// Capture runs use a throwaway profile, so they never touch your settings
+// and can run while your own clock is open.
+if (argValue('capture')) app.setPath('userData', path.join(app.getPath('temp'), 'sketch-clock-capture'));
 
 if (!app.requestSingleInstanceLock()) {
   app.quit();

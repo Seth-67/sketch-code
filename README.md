@@ -4,6 +4,8 @@ A small Windows desktop clock where the time is drawn by one continuous,
 hand-sketched pen line, with diagonal hatching, redrawn as fresh artwork
 every minute.
 
+![Sketch Clock showing 10:08 above the date, Tuesday, October 13, 2026](docs/screenshot.png)
+
 ## Run it
 
 Requires Node.js 18+ (no internet needed after `npm install`).
@@ -88,4 +90,7 @@ main.js / preload.js   Electron window, menu, startup, wake/unlock resync
 - `src/gallery.html` (serve `src/` over HTTP) shows edge-case times; click a tile to animate it.
 - `index.html?at=2026-10-13T23:59:55` runs the clock from that moment;
   `&static=1` skips animation.
-- `electron . --at=<ISO time> --capture=out.png --capture-delay=6000` saves a screenshot and exits.
+- `electron . --at=<ISO time> --capture=out.png --capture-delay=6000 [--capture-size=920x480]`
+  saves a screenshot and exits. It uses a throwaway profile, so it works while
+  your clock is open and leaves your settings alone. The README image was made
+  with `--at=2026-10-13T10:08:00 --capture=docs/screenshot.png --capture-delay=7000 --capture-size=920x480`.

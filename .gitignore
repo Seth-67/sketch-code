@@ -1,0 +1,28 @@
+# Dependencies (restore with `npm install`)
+node_modules/
+
+# Packaged app output (rebuild with `npm run package`)
+dist/
+out/
+
+# Test captures (`--capture=...`)
+*.png
+!docs/**/*.png
+
+# Logs and debug output
+npm-debug.log*
+debug.log
+*.log
+
+# Editor / OS clutter
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Local environment and tool settings
+.env
+.env.*
+.claude/settings.local.json

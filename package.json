@@ -1,0 +1,17 @@
+{
+  "name": "sketch-clock",
+  "productName": "Sketch Clock",
+  "version": "1.0.0",
+  "description": "A digital clock drawn as one continuous hand-sketched line, redrawn every minute.",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "test": "node tests/run-tests.js",
+    "package": "electron-packager . \"Sketch Clock\" --platform=win32 --arch=x64 --out=dist --overwrite --asar --ignore=^/dist --ignore=^/tests"
+  },
+  "devDependencies": {
+    "@electron/packager": "^20.3.0",
+    "electron": "^44.7.1"
+  }
+}
